@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>My2Cents</title>
+	</head>
+	<body>
+		<form action="/auth/" method="post"> {% csrf_token %}
+			<input type="text" name="username" value="" id="username"
+			placeholder="Enter Username"><br>
+			<input type="password" name="password" value="" id="password"
+			placeholder="Enter Password"><br>
+			<input type="submit" value="Login">
+		</form>
+	</body>
+</html>
