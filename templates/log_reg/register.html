@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My2Cents - Registration</title>
+</head>
+<body>
+	<h2>Registration</h2>
+	<form action="/register/" method="post"> {% csrf_token %}
+		{{form.as_ul}}
+
+		<input type="submit" value="Register">
+	</form>
+</body>
+</html>
