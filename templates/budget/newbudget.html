@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Add Budget</title>
+	</head>
+	<body>
+		<h2>Add a new budget:</h2>
+		<form action="/budgets/newbudget/" method="post"> {% csrf_token %}
+			{{ form.as_p }}
+			<input type="submit" value="Create Budget">
+		</form>
+	</body>
+</html>
