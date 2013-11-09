@@ -22,5 +22,6 @@ class PurchaseModel(models.Model):
 	id = models.AutoField(primary_key=True)
 	budget = models.ForeignKey(BudgetModel)
 	name = models.CharField(max_length=100)
+	price = models.DecimalField(max_digits=15, decimal_places=2)
 	category = models.IntegerField(choices=CATEGORIES)
 	date_of_purchase = models.DateField(auto_now=True)

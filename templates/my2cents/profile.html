@@ -5,6 +5,12 @@
 	</head>
 	<body>
 		<h2>YOU'VE LOGGED IN VERSION 2!</h2>
+		{% if budget %}
+		<p>You're current budget is {{ budget.budget_amount }} and ends on {{ budget.end_date }}.</p>
+		<p>Click <a href="../budgets/newpurchase/">here</a> to add a new purchase!
+		{% else %}
+		<p>You have not set a budget for this time.</p>
 		click <a href="../budgets/newbudget/">here</a> to add a new budget!
+		{% endif %}
 	</body>
 </html>
