@@ -6,8 +6,13 @@
 	<body>
 		<h2>YOU'VE LOGGED IN VERSION 2!</h2>
 		{% if budget %}
-		<p>You're current budget is {{ budget.budget_amount }} and ends on {{ budget.end_date }}.</p>
+		<p>You're current budget is ${{ budget.budget_amount }} and ends on {{ budget.end_date }}.</p>
 		<p>Click <a href="../budgets/newpurchase/">here</a> to add a new purchase!
+
+		{% for purchase in purchases %}
+			<p> Purchase: {{ purchase.name }} Price: ${{ purchase.price_to_string }} Category: {{ purchase.category_to_string }} <a href="../budgets/delete/{{ purchase.id }}/">Delete</a>
+		{% endfor %}
+
 		{% else %}
 		<p>You have not set a budget for this time.</p>
 		click <a href="../budgets/newbudget/">here</a> to add a new budget!

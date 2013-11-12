@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from decimal import Decimal
 
 # Create your models here.
 class BudgetModel(models.Model):
@@ -25,3 +26,9 @@ class PurchaseModel(models.Model):
 	price = models.DecimalField(max_digits=15, decimal_places=2)
 	category = models.IntegerField(choices=CATEGORIES)
 	date_of_purchase = models.DateField(auto_now=True)
+
+	def price_to_string(self):
+		return self.price.quantize(Decimal('.00'))
+
+	def category_to_string(self):
+		return self.CATEGORIES[self.category][1]

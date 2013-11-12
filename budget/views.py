@@ -43,6 +43,7 @@ def new_budget_view(request):
 	context.update(csrf(request))
 	return render(request, 'budget/newbudget.html', context)
 
+@login_required
 def new_purchase_view(request):
 	if request.method == 'POST':
 		form = PurchaseForm(request.POST)
@@ -66,3 +67,14 @@ def new_purchase_view(request):
 	context['form'] = PurchaseForm()
 	context.update(csrf(request))
 	return render(request, 'budget/newpurchase.html', context)
+
+@login_required
+def delete_purchase_view(request, purchase_id=0):
+	purchase = PurchaseModel.objects.get(id__exact=purchase_id)
+	budget = BudgetModel.objects.get(end_date__gte=datetime.today(),
+		user_account=request.user)
+	budget.budget_amount += purchase.price
+	budget.save()
+	purchase.delete()
+
+	return HttpResponseRedirect('/accounts/profile')
