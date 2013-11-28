@@ -78,3 +78,30 @@ def delete_purchase_view(request, purchase_id=0):
 	purchase.delete()
 
 	return HttpResponseRedirect('/accounts/profile')
+
+@login_required
+def edit_purchase_view(request, purchase_id=0):
+	purchase = PurchaseModel.objects.get(id__exact=purchase_id)
+	budget = BudgetModel.objects.get(end_date__gte=datetime.today(),
+		user_account=request.user)
+	if request.method == 'POST':
+		form = PurchaseForm(request.POST)
+		if form.is_valid():
+			# Remove former price from budget, change data,
+			# add new price to budget
+			budget.budget_amount += purchase.price
+			purchase.name = form.cleaned_data['name']
+			purchase.price = form.cleaned_data['price']
+			purchase.category = form.cleaned_data['category']
+			budget.budget_amount -= purchase.price
+			purchase.save()
+			budget.save()
+		return HttpResponseRedirect('/accounts/profile')
+	else:
+		form = PurchaseForm()
+		context = RequestContext(request)
+		context['form'] = PurchaseForm()
+		context['purchase'] = purchase
+		context.update(csrf(request))
+		return render(request, 'budget/editpurchase.html', context	
+)		

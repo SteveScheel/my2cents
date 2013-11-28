@@ -1,0 +1,48 @@
+html, body{
+	margin:0;
+	padding:0;
+	height:100%;
+	width:100%;
+}
+
+body{
+	background-color: #313333; 
+}
+
+h1{
+	text-align:center;
+}
+
+p{
+	color:#c6930c;
+}
+
+#login_form{
+	width:300px;
+	margin:250px auto 0 auto;
+}
+
+label{
+	float:left;
+}
+
+input{
+	width:300px;
+	margin-bottom:5px;
+	padding:2px 5px;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	border-radius:5px;
+	border:1px solid;
+}
+
+input:focus{
+	border:2px solid #f0a502;
+}
+
+#header{
+	margin-left:auto;
+	margin-right:auto;
+	width:80%;
+	text-align:center;
+}

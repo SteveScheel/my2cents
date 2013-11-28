@@ -5,7 +5,7 @@ from django.contrib import auth
 from django.core.context_processors import csrf
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
-from django.contrib.auth.forms import UserCreationForm
+from reg_login.forms import UserCreateForm
 
 def login_view(request):
 	context = {}
@@ -27,13 +27,14 @@ def logout_view(request):
 
 def register_view(request):
 	if request.method == 'POST':
-		form = UserCreationForm(request.POST)
+		form = UserCreateForm(request.POST)
 		if form.is_valid():
 			form.save()
 			return HttpResponseRedirect('/login')
 	
+	form = UserCreateForm()
 	context = {}
+	context['form'] = form
 	context.update(csrf(request))
-	context['form'] = UserCreationForm()
 
 	return render(request,'log_reg/register.html', context)

@@ -10,7 +10,7 @@
 		<p>Click <a href="../budgets/newpurchase/">here</a> to add a new purchase!
 
 		{% for purchase in purchases %}
-			<p> Purchase: {{ purchase.name }} Price: ${{ purchase.price_to_string }} Category: {{ purchase.category_to_string }} <a href="../budgets/delete/{{ purchase.id }}/">Delete</a>
+			<p> Purchase: {{ purchase.name }} Price: ${{ purchase.price_to_string }} Category: {{ purchase.category_to_string }} <a href="../budgets/delete/{{ purchase.id }}/">Delete </a> <a href="../budgets/edit/{{ purchase.id }}/">Edit</a></p>
 		{% endfor %}
 
 		{% else %}

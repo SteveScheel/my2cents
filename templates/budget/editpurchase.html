@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Edit Purchase</title>
+	</head>
+	<body>
+		<h2>Add a new purchase:</h2>
+		<form action="/budgets/edit/{{ purchase.id }}/" method="post"> 
+			{% csrf_token %}
+			{{ form.as_p }}
+			<input type="submit" value="Edit Purchase">
+		</form>
+	</body>
+</html>
