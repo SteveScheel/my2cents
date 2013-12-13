@@ -1,0 +1,29 @@
+html, body{
+	margin:0;
+	padding:0;
+	height:100%;
+	width:100%;
+	text-align:center;
+}
+
+p, h1, label{
+	color:#c6930c;
+}
+
+#budget_form{
+	height:80%;
+	width:90%;
+	margin:2% auto 0 auto;
+}
+
+input{
+	width:90%;
+	height:5%;
+	margin-bottom:3%;
+	padding:2px 5px;
+	border:1px solid;
+}
+
+input:focus{
+	border:2px solid #f0a502;
+}

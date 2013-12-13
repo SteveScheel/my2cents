@@ -1,9 +1,19 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 	<head>
 		<title>{% block title %} {% endblock %}</title>
+			<link rel="stylesheet" type="text/css" href="{% static "assets/css/base.css" %}">
+			{% block css %}
+			{% endblock %}
 	</head>
 	<body>
+	<header>
+		<div id="headimage">
+			<img src = "{%static "assets/images/images/logo.png" %}">
+
+		</div>
+	</header>
 	{% block content %}
 	{% endblock %}
 	<p><small>Copyright Steve Scheel 2013</small></p>

@@ -3,10 +3,7 @@ html, body{
 	padding:0;
 	height:100%;
 	width:100%;
-}
-
-body{
-	background-color: #313333; 
+	text-align:center;
 }
 
 h1{
@@ -18,8 +15,10 @@ p{
 }
 
 #login_form{
-	width:300px;
-	margin:250px auto 0 auto;
+	height:80%;
+	width:90%;
+	margin:2% auto 0 auto;
+	text-align:center;
 }
 
 label{
@@ -27,13 +26,12 @@ label{
 }
 
 input{
-	width:300px;
-	margin-bottom:5px;
+	width:90%;
+	height:5%;
+	margin-bottom:3%;
 	padding:2px 5px;
-	-webkit-border-radius:5px;
-	-moz-border-radius:5px;
-	border-radius:5px;
 	border:1px solid;
+	text-align:center;
 }
 
 input:focus{
@@ -45,4 +43,13 @@ input:focus{
 	margin-right:auto;
 	width:80%;
 	text-align:center;
+}
+
+#link-button{
+	height:100%;
+	background-color:#443d3d;
+	color:#FFF;
+	text-align:center;
+	font-weight:bolder;
+	font-size:1.3em;
 }

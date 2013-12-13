@@ -6,6 +6,8 @@ from django.core.context_processors import csrf
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from reg_login.forms import UserCreateForm
+from django.contrib.auth import logout
+
 
 def login_view(request):
 	context = {}
@@ -23,6 +25,7 @@ def auth_view(request):
 		return HttpResponseRedirect('/login')
 
 def logout_view(request):
+	logout(request)
 	return HttpResponseRedirect('/login')
 
 def register_view(request):

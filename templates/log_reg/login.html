@@ -1,14 +1,21 @@
-{% extends "log_reg/base.html" %}
+{% extends "base.html" %}
+{% load static %}
 
 {% block title %} My2Cents-login {% endblock %}
 
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static "assets/css/login.css" %}">
+{% endblock %}
+
 {% block content %}
-	<form action="/auth/" method="post"> {% csrf_token %}
+	<form action="/auth/" method="post" id="login_form"> {% csrf_token %}
 		<input type="text" name="username" value="" id="username"
 			placeholder="Enter Username"><br>
 		<input type="password" name="password" value="" id="password"
 			placeholder="Enter Password"><br>
-		<input type="submit" value="Login">
+		<input type="submit" value="Login" id="link-button">
 	</form>
-	<p>Not registered? Click <a href="/register">here</a>!</p>
+	<form action="/register/">
+		<input type="submit" value="Register" id="link-button-two">
+	</form>
 {% endblock %}

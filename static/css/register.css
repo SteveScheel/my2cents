@@ -1,0 +1,35 @@
+html, body{
+	margin:0;
+	padding:0;
+	height:100%;
+	width:100%;
+	text-align:center;
+}
+
+input{
+	width:90%;
+	height:5%;
+	margin-bottom:3%;
+	padding:2px 5px;
+	border:1px solid;
+	text-align:center;
+}
+
+p, h1{
+	color:#c6930c;
+}
+
+#reg_form{
+	height:80%;
+	width:90%;
+	margin:2% auto 0 auto;
+}
+
+#link-button{
+	height:5%;
+	background-color:#443d3d;
+	color:#FFF;
+	text-align:center;
+	font-weight:bolder;
+	font-size:1.3em;
+}

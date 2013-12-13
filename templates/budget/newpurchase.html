@@ -1,14 +1,28 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Add Budget</title>
-	</head>
-	<body>
-		<h2>Add a new purchase:</h2>
-		<form action="/budgets/newpurchase/" method="post"> 
-			{% csrf_token %}
-			{{ form.as_p }}
-			<input type="submit" value="Create Budget">
-		</form>
-	</body>
-</html>
+{% extends "base.html" %}
+{% load static %}
+{% block title %}My2Cents- Add Budget{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static "assets/css/newpurchase.css" %}">
+{% endblock %}
+
+{% block link%}
+<a href="/accounts/profile/">
+{% endblock %}
+{% block endlink%}
+</a>
+{% endblock %}
+
+{% block content %}		
+	<h1>Add a new purchase</h1>
+	<form action="/budgets/newpurchase/" method="post" id="purchase_form"> 
+		{% csrf_token %}
+		{{ form.name }} <br>
+		{{ form.price }} <br>
+		<big><big>
+		<label for="id_category">Select a Category:</label>
+		</big></big>
+		{{ form.category }} <br>
+		<input type="submit" value="Enter Purchase" id="link-button">
+	</form>
+{% endblock %}

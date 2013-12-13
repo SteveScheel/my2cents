@@ -1,0 +1,54 @@
+html, body{
+	-webkit-appearance: none;
+	margin:0;
+	padding:0;
+	height:100%;
+	width:100%;
+	text-align:center;
+}
+
+p, h1, h2{
+		color:#c6930c;
+
+}
+
+#table_div{
+	height:62%;
+	width:90%;
+	margin:0 auto;
+	text-align:center;
+}
+
+table{
+	width:90%;
+	margin:0 auto;
+	text-align:center;
+}
+
+#table_img{
+	width:50px;
+	height:50px;
+}
+
+form{
+	height:5%;
+	width:90%;
+	margin:2% auto 0 auto;
+}
+
+input{
+	width:100%;
+	height:100%;
+	margin-bottom:3%;
+	padding:2px 5px;
+	border:1px solid;
+}
+
+#link-button{
+	height:100%;
+	background-color:#443d3d;
+	color:#FFF;
+	text-align:center;
+	font-weight:bolder;
+	font-size:1.3em;
+}

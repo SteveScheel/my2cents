@@ -58,7 +58,7 @@ def new_purchase_view(request):
 			purchase_budget.save()
 			model = PurchaseModel(budget=purchase_budget,
 				name=purchase_name, price=purchase_price,
-				category=purchase_category, 
+				category=purchase_category-1, 
 				date_of_purchase=purchase_date)
 			model.save()
 			return HttpResponseRedirect('/accounts/profile')
@@ -92,7 +92,7 @@ def edit_purchase_view(request, purchase_id=0):
 			budget.budget_amount += purchase.price
 			purchase.name = form.cleaned_data['name']
 			purchase.price = form.cleaned_data['price']
-			purchase.category = form.cleaned_data['category']
+			purchase.category = form.cleaned_data['category']-1
 			budget.budget_amount -= purchase.price
 			purchase.save()
 			budget.save()

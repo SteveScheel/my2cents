@@ -1,21 +1,60 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Profile</title>
-	</head>
-	<body>
-		<h2>YOU'VE LOGGED IN VERSION 2!</h2>
-		{% if budget %}
-		<p>You're current budget is ${{ budget.budget_amount }} and ends on {{ budget.end_date }}.</p>
-		<p>Click <a href="../budgets/newpurchase/">here</a> to add a new purchase!
+{% extends "base.html" %}
+{% load static %}
 
-		{% for purchase in purchases %}
-			<p> Purchase: {{ purchase.name }} Price: ${{ purchase.price_to_string }} Category: {{ purchase.category_to_string }} <a href="../budgets/delete/{{ purchase.id }}/">Delete </a> <a href="../budgets/edit/{{ purchase.id }}/">Edit</a></p>
-		{% endfor %}
+{% block title %}My2Cents-Profile{% endblock %}
 
-		{% else %}
-		<p>You have not set a budget for this time.</p>
-		click <a href="../budgets/newbudget/">here</a> to add a new budget!
-		{% endif %}
-	</body>
-</html>
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static "assets/css/profile.css" %}">
+{% endblock %}
+
+{% block link%}
+<a href="/accounts/profile/">
+{% endblock %}
+{% block endlink%}
+</a>
+{% endblock %}
+
+{% block content %}
+	{% if budget %}<p><h1><big><big>${{ budget.budget_amount }}</big></big></h1></p>
+	<h2>{{ budget.end_date}}</h2>
+	{% else %}<h1><big><big>$0.00</big></big></h1>
+	{% endif %}
+
+	<div id="table_div">
+		<table>
+			<tr>
+				<th><h1>Name</h1></th>
+				<th><h1>Price</h1></th>
+				<th><h1>Category</h1></th>
+				<th><h1>Edit</h1></th>
+				<th><h1>Delete</h1></th>
+			</tr>
+			{% if budget %}
+				{% for purchase in purchases %}
+					<tr>
+						<td><h2>{{ purchase.name }}</h2></td>
+						<td><h2>${{ purchase.price_to_string }}</h2></td>
+						<td><h2>{{ purchase.category_to_string }}</h2></td>
+						<td><a href="../budgets/edit/{{ purchase.id }}/"><img src = "{%static "assets/images/images/edit.png" %}" id="table_img"></a></td>
+						<td><a href="../budgets/delete/{{ purchase.id }}/"><img src = "{%static "assets/images/images/delete.png" %}" id="table_img"> </a></td>
+					</tr>
+				{% endfor %}
+				</table>
+			{% else %}
+				</table>
+				<h1>Please set a budget.</h1>
+			</div>
+			<form action="/budgets/newbudget">
+				<input type="submit" value="Add Budget" id="link-button">
+			</form>
+			{% endif %}
+	</div>
+	{% if budget %}
+	<form action="/budgets/newpurchase">
+		<input type="submit" value="Add Purchase" id="link-button">
+	</form>
+	{% endif %}
+	<form action="/logout/">
+		<input type="submit" value="Logout" id="link-button">
+	</form>
+{% endblock %}
